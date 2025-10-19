@@ -1,0 +1,25 @@
+[package]
+name = "pinger"
+version = "2.1.1"
+authors = ["Tom Forbes <tom@tomforb.es>"]
+edition = "2018"
+license = "MIT"
+description = "A small cross-platform library to execute the ping command and parse the output"
+repository = "https://github.com/orf/pinger/"
+
+[dependencies]
+thiserror = "2.0.11"
+lazy-regex = "3.4.1"
+rand = { version = "0.9.0", optional = true }
+
+[target.'cfg(windows)'.dependencies]
+winping = "0.10.1"
+
+[dev-dependencies]
+os_info = "3.9.2"
+ntest = "0.9.3"
+anyhow = "1.0.95"
+
+[features]
+default = []
+fake-ping = ["rand"]
